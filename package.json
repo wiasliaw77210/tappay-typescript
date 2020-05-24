@@ -1,6 +1,6 @@
 {
   "name": "tappay-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is an unofficial SDK with Typescript Support.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
