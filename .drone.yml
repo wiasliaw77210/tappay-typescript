@@ -2,10 +2,6 @@
 kind: pipeline
 name: Tester test
 
-platform:
-  os: linux
-  arch: amd64
-
 steps:
 - name: security
   image: snyk/snyk-cli:npm
