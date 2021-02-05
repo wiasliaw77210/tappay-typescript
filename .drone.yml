@@ -49,3 +49,6 @@ steps:
 trigger:
   event:
     - tag
+
+depends_on:
+  - tester
