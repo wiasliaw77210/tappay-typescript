@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: Tester
+name: Tester test
 
 platform:
   os: linux
