@@ -1,18 +1,7 @@
----
 kind: pipeline
-type: docker
-name: Tester
+name: tester
 
 steps:
-- name: security
-  image: snyk/snyk-cli:npm
-  pull: always
-  environment:
-    SNYK_TOKEN:
-      from_secret: SNYK_TOKEN
-  commands:
-  - snyk monitor --all-projects
-
 - name: install
   image: node:14
   commands:
@@ -24,25 +13,3 @@ steps:
     NODE_ENV: production
   commands:
   - npm run build
-
----
-kind: pipeline
-name: Publisher
-
-platform:
-  os: linux
-  arch: amd64
-
-- name: publish
-  image: node:14
-  settings:
-    username:
-      from_secret: NPM_UN
-    password:
-      from_secret: NPM_PW
-    email:
-      from_secret: NPM_EM
-
-trigger:
-  event:
-    - tag
