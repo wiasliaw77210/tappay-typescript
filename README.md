@@ -1,6 +1,7 @@
 # tappay-typescript
 
 [![npm version](https://badge.fury.io/js/tappay-typescript.svg)](https://badge.fury.io/js/tappay-typescript)
+[![Build Status](https://cloud.drone.io/api/badges/wiasliaw77210/tappay-typescript/status.svg)](https://cloud.drone.io/wiasliaw77210/tappay-typescript)
 
 This is an unofficial SDK with Typescript Support.
 
