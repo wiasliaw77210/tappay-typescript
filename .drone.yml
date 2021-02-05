@@ -6,6 +6,15 @@ platform:
   arch: amd64
 
 steps:
+- name: security
+  image: snyk/snyk-cli:npm
+  pull: always
+  environment:
+    SNYK_TOKEN:
+      from_secret: SNYK_TOKEN
+  commands:
+  - snyk monitor --all-projects
+
 - name: install
   image: node:14
   commands:
@@ -20,7 +29,7 @@ steps:
 
 ---
 kind: pipeline
-name: Publisher
+name: publisher
 
 platform:
   os: linux
