@@ -1,0 +1,35 @@
+---
+kind: pipeline
+name: Tappay-TS
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: install
+  image: node:14
+  commands:
+  - npm install -g snyk
+  - npm install
+
+- name: build
+  image: node:14
+  environment:
+    NODE_ENV: production
+  commands:
+  - npm run build
+
+- name: publish
+  image: node:14
+  settings:
+    username:
+      from_secret: NPM_UN
+    password:
+      from_secret: NPM_PW
+    email:
+      from_secret: NPM_EM
+
+trigger:
+  event:
+    - tag
