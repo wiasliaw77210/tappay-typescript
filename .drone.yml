@@ -1,16 +1,24 @@
 ---
 kind: pipeline
-name: Tappay-TS
+name: Tester
 
 platform:
   os: linux
   arch: amd64
 
+- name: security
+  image: snyk/snyk-cli:npm
+  pull: always
+  environment:
+    SNYK_TOKEN:
+      from_secret: SNYK_TOKEN
+  commands:
+  - snyk monitor --all-projects
+
 steps:
 - name: install
   image: node:14
   commands:
-  - npm install -g snyk
   - npm install
 
 - name: build
@@ -19,6 +27,14 @@ steps:
     NODE_ENV: production
   commands:
   - npm run build
+
+---
+kind: pipeline
+name: Publisher
+
+platform:
+  os: linux
+  arch: amd64
 
 - name: publish
   image: node:14
