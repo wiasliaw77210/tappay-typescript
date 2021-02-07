@@ -57,6 +57,8 @@ steps:
       from_secret: NPM_PW
     email:
       from_secret: NPM_EM
+  commands:
+  - npm publish
 
 trigger:
   event:
