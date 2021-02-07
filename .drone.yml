@@ -36,12 +36,16 @@ platform:
   arch: amd64
 
 steps:
+- name: install
+  image: node:14
+  commands:
+  - npm install
+
 - name: build
   image: node:14
   environment:
     NODE_ENV: production
   commands:
-  - npm install
   - npm run build
 
 - name: publish
