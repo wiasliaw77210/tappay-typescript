@@ -57,7 +57,9 @@ steps:
       from_secret: NPM_PW
     email:
       from_secret: NPM_EM
+    registry: 
   commands:
+  - npm login
   - npm publish
 
 trigger:
