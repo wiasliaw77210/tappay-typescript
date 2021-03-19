@@ -49,7 +49,7 @@ steps:
   - npm run build
 
 - name: publish
-  image: plugins/npm
+  image: node:14
   settings:
     token:
       from_secret: NPM_DP_KEY
