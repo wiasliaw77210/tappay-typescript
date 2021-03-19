@@ -49,14 +49,8 @@ steps:
   - npm run build
 
 - name: publish
-  image: node:14
+  image: plugins/npm
   settings:
-    username:
-      from_secret: NPM_UN
-    password:
-      from_secret: NPM_PW
-    email:
-      from_secret: NPM_EM
     token:
       from_secret: NPM_DP_KEY
   commands:
