@@ -50,10 +50,11 @@ steps:
 
 - name: publish
   image: node:14
-  settings:
-    token:
-      from_secret: NPM_DP_KEY
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
   commands:
+  - echo //registry.npmjs.org/:_authToken=$NPM_TOKEN > .npmrc
   - npm publish
 
 trigger:
